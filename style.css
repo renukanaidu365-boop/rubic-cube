@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    min-height: 100vh;
+    color: #fff;
+}
+
+#app {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Glassmorphism Header */
+header {
+    text-align: center;
+    padding: 24px 0;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    border: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    background: linear-gradient(135deg, #f7971e, #ffd200);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header p {
+    color: rgba(255,255,255,0.7);
+    font-size: 1.1rem;
+}
+
+/* Main Grid */
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+@media (max-width: 820px) {
+    main { grid-template-columns: 1fr; }
+}
+
+/* Cube Container */
+#cube-container {
+    background: rgba(255,255,255,0.04);
+    border-radius: 24px;
+    border: 1px solid rgba(255,255,255,0.06);
+    min-height: 520px;
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Controls Panel */
+#controls {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 650px;
+    overflow-y: auto;
+}
+
+.control-group {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+}
+button:active { transform: scale(0.96); }
+
+.btn-scramble {
+    background: linear-gradient(135deg, #f7971e, #ffd200);
+    color: #1a1a2e;
+}
+.btn-solve {
+    background: linear-gradient(135deg, #00b894, #00cec9);
+    color: #fff;
+}
+.btn-reset {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    color: #fff;
+}
+.btn-preview {
+    background: linear-gradient(135deg, #fd79a8, #e84393);
+    color: #fff;
+}
+.btn-next {
+    background: linear-gradient(135deg, #0984e3, #74b9ff);
+    color: #fff;
+}
+
+#solution-display {
+    background: rgba(0,0,0,0.3);
+    border-radius: 16px;
+    padding: 16px;
+    flex: 1;
+    min-height: 140px;
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+#solution-display h3 {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+#moves-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.move-step {
+    background: rgba(255,255,255,0.08);
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+.move-step.active {
+    background: #00b894;
+    color: #fff;
+    box-shadow: 0 0 16px rgba(0,184,148,0.5);
+    transform: scale(1.05);
+}
+.move-step.done {
+    opacity: 0.4;
+    text-decoration: line-through;
+}
+
+#solution-status {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+}
+
+/* Keyboard Reference */
+#keyboard-ref {
+    background: rgba(255,255,255,0.04);
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+}
+
+#keyboard-ref kbd {
+    background: rgba(255,255,255,0.08);
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Scrollbar Styling */
+#solution-display::-webkit-scrollbar {
+    width: 4px;
+}
+#solution-display::-webkit-scrollbar-track {
+    background: transparent;
+}
+#solution-display::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.2);
+    border-radius: 4px;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🧩 CubeAI - Rubik's Cube Solver</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header>
+            <h1>🧩 CubeAI</h1>
+            <p>Interactive 3D Rubik's Cube Solver &amp; Tutor</p>
+        </header>
+
+        <!-- Main Layout -->
+        <main>
+            <!-- 3D Cube -->
+            <section id="cube-container"></section>
+
+            <!-- Controls Panel -->
+            <section id="controls">
+                <div class="control-group">
+                    <button id="btn-scramble" class="btn-scramble">🔀 Scramble</button>
+                    <button id="btn-solve" class="btn-solve">🧠 Solve</button>
+                    <button id="btn-reset" class="btn-reset">↺ Reset</button>
+                </div>
+
+                <div class="control-group">
+                    <label>Speed: <input type="range" id="speed-control" min="100" max="800" value="300" /></label>
+                </div>
+
+                <div class="control-group">
+                    <button id="btn-preview" class="btn-preview">👁️ Preview All</button>
+                    <button id="btn-next" class="btn-next">▶ Next Step</button>
+                </div>
+
+                <!-- Solution Display -->
+                <div id="solution-display">
+                    <h3>📋 Solution Steps</h3>
+                    <div id="moves-list"></div>
+                    <div id="solution-status"></div>
+                </div>
+
+                <!-- Keyboard Reference -->
+                <div id="keyboard-ref">
+                    <p><strong>⌨️ Keyboard Controls:</strong></p>
+                    <p><kbd>R</kbd> <kbd>L</kbd> <kbd>U</kbd> <kbd>D</kbd> <kbd>F</kbd> <kbd>B</kbd> — Rotate faces</p>
+                    <p><kbd>Shift</kbd> + key — Counter‑clockwise</p>
+                    <p><kbd>🖱️ Drag</kbd> — Rotate view</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Three.js -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+
+    <script type="module" src="cube.js"></script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
